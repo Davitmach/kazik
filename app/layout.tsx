@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import { Provider } from "./components/provider";
+import Script from "next/script";
+
 
 const roboto = Roboto({
   variable: "--font-geist-sans",
@@ -18,13 +21,20 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+{
+  
+
   return (
     <html lang="en">
       <body
         className={` ${roboto.className}  antialiased`}
       >
+       <Provider>
         {children}
+      </Provider>
+       
       </body>
     </html>
   );
