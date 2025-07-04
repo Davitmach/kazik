@@ -9,7 +9,7 @@ export const Spin = () => {
   const { items } = useRandomStore(); // массив элементов
   const [el, setEl] = useState<string | undefined>();
   const containerRef = useRef<HTMLDivElement>(null);
-
+ const DOMEN = process.env.NEXT_PUBLIC_DOMEN; 
   // мутация
   const mutation = useMutation({
     mutationFn: bet.spin,
@@ -119,7 +119,7 @@ export const Spin = () => {
           {displayedItems.map((item, i) => (
             <SpinBox
               key={i}
-              img={item}
+              img={`${DOMEN}/media/img/${item}.png`}
               
             />
           ))}
