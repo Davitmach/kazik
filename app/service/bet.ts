@@ -18,7 +18,7 @@ if(data.data) {
     async spin() {
          var domen = process.env.NEXT_PUBLIC_DOMEN;
          if(domen) {
-    const spin =await axios.get(domen+'/drop/random',{
+    const spin =await axios.get(domen+'/api/drop/random',{
         headers:{
             "X-Telegram-InitData": window.Telegram.WebApp.initData 
         }
