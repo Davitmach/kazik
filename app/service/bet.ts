@@ -9,7 +9,11 @@ class Bet {
     async getRandom() {
         var domen = process.env.NEXT_PUBLIC_DOMEN;
         if(domen) {
-const data = await axios.get(domen+'/api/drop/random');
+const data = await axios.get(domen+'/api/drop/random',{
+     headers:{
+            "X-Telegram-InitData": window.Telegram.WebApp.initData 
+        }
+});
 if(data.data) {
     return data.data
 }
@@ -20,7 +24,7 @@ if(data.data) {
          if(domen) {
     const spin =await axios.get(domen+'/drop/random',{
         headers:{
-            'X-Telegram-InitData':window.Telegram.WebApp.initData
+            "X-Telegram-InitData": window.Telegram.WebApp.initData 
         }
     })
     if(spin.data) {
